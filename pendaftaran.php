@@ -405,7 +405,7 @@
 			<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
 				<div class="row">
 					<div class="col-md-8 col-sm-6">
-						Pasfoto
+						<br><b>Pasfoto</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
 						<input type="file" name="pasfoto" class="btn btn-basic" value="<?php echo $nama_asli;?>"><span class="error"><?php echo $pasfotoErr;?></span><br>
@@ -413,7 +413,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-8 col-sm-6">
-						Nama dalam ijazah 
+						<br><b>Nama dalam ijazah</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
 						<input type="text" name="nama_asli" class="form-control" value="<?php echo $nama_asli;?>"><span class="error"><?php echo $nama_asliErr;?></span><br>
@@ -421,7 +421,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-8 col-sm-6">
-						Nama dalam LJU
+						<br><b>Nama dalam LJU</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
 						<input type="text" name="nama_lju" class="form-control" value="<?php echo $nama_lju;?>"><span class="error"><?php echo $nama_ljuErr;?></span><br>
@@ -429,7 +429,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-8 col-sm-6">
-						NISN
+						<br><b>NISN</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
 						<input type="text" name="nisn" class="form-control" value="<?php echo $nisn;?>"><span class="error"><?php echo $nisnErr;?></span><br>
@@ -437,7 +437,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-8 col-sm-6">
-						Alamat tetap
+						<br><b>Alamat tetap</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
 						<textarea name="alamat_tetap" class="form-control" rows="5" cols="100"><?php echo $alamat_tetap;?></textarea><span class="error"><?php echo $alamat_tetapErr;?></span>
@@ -445,7 +445,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-8 col-sm-6">
-						Provinsi
+						<br><b>Provinsi</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
 						<input type="text" name="provinsi_tetap" class="form-control" value="<?php echo $provinsi_tetap;?>"><span class="error"><?php echo $provinsi_tetapErr;?></span><br>
@@ -453,7 +453,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-8 col-sm-6">
-						Kabupaen/kota
+						<br><b>Kabupaen/kota</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
 						<input type="text" name="kota_tetap" class="form-control" value="<?php echo $kota_tetap;?>"><span class="error"><?php echo $kota_tetapErr;?></span><br>
@@ -461,7 +461,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-8 col-sm-6">
-						Kode pos
+						<br><b>Kode pos</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
 						<input type="text" name="kode_pos" class="form-control" value="<?php echo $kode_pos;?>"><span class="error"><?php echo $kode_posErr;?></span><br>
@@ -469,7 +469,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-8 col-sm-6">
-						Telepon/HP
+						<br><b>Telepon/HP</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
 						<input type="text" name="telepon" class="form-control" value="<?php echo $telepon;?>"><span class="error"><?php echo $teleponErr;?></span><br>
@@ -477,7 +477,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-8 col-sm-6">
-						Email
+						<br><b>Email</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
 						<input type="text" name="email" class="form-control" value="<?php echo $email;?>"><span class="error"><?php echo $emailErr;?></span><br>
@@ -485,7 +485,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-8 col-sm-6">
-						Provinsi tempat lahir
+						<br><b>Provinsi tempat lahir</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
 						<input type="text" name="provinsi_lahir" class="form-control" value="<?php echo $provinsi_lahir;?>"><span class="error"><?php echo $provinsi_lahirErr;?></span><br>
@@ -493,7 +493,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-8 col-sm-6">
-						Kabupaten/kota tempat lahir
+						<br><b>Kabupaten/kota tempat lahir</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
 						<input type="text" name="kota_lahir" class="form-control" value="<?php echo $kota_lahir;?>"><span class="error"><?php echo $kota_lahirErr;?></span><br>
@@ -501,7 +501,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-8 col-sm-6">
-						Tanggal lahir
+						<br><b>Tanggal lahir</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
 						<input type="date" name="tanggal_lahir" class="form-control" value="<?php echo $tanggal_lahir;?>"><span class="error"><?php echo $tanggal_lahirErr;?></span><br>
@@ -509,7 +509,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-8 col-sm-6">
-						Jenis kelamin 
+						<br><b>Jenis kelamin</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
 						<input type="radio" name="jenis_kelamin" value="male" checked>Male 
@@ -519,7 +519,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-8 col-sm-6">
-						Agama
+						<br><b>Agama</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
 						<select name="agama">
@@ -535,7 +535,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-8 col-sm-6">
-						Kewarganegaraan
+						<br><b>Kewarganegaraan</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
 						<input type="text" name="kewarganegaraan" class="form-control" value="<?php echo $kewarganegaraan;?>"><span class="error"><?php echo $kewarganegaraanErr;?></span><br>
@@ -543,7 +543,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-8 col-sm-6">
-						Nama ayah
+						<br><b>Nama ayah</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
 						<input type="text" name="ayah" class="form-control" value="<?php echo $ayah;?>"><span class="error"><?php echo $ayahErr;?></span><br>
@@ -551,7 +551,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-8 col-sm-6">
-						Nama ibu
+						<br><b>Nama ibu</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
 						<input type="text" name="ibu" class="form-control" class="form-control" value="<?php echo $ibu;?>"><span class="error"><?php echo $ibuErr;?></span><br>
