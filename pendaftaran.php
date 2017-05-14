@@ -41,7 +41,9 @@
   .bg-grey {
       background-color: #f6f6f6;
   }
-
+  .error{
+	  color:#B71C1C;
+  }
   .logo-small {
       color: #428BCA;
       font-size: 50px;
@@ -512,8 +514,8 @@
 						<br><b>Jenis kelamin</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
-						<input type="radio" name="jenis_kelamin" value="male" checked>Male 
-						<input type="radio" name="jenis_kelamin" value="female" <?php if (isset($jenis_kelamin) && $jenis_kelamin=="female") echo "checked";?>>Female
+						<input type="radio" name="jenis_kelamin" value="male" checked>Laki-laki 
+						<input type="radio" name="jenis_kelamin" value="female" <?php if (isset($jenis_kelamin) && $jenis_kelamin=="female") echo "checked";?>>Perempuan
 						<span class="error"><?php echo $jenis_kelaminErr;?></span>
 					</div>
 				</div>
@@ -522,7 +524,7 @@
 						<br><b>Agama</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
-						<select name="agama">
+						<select name="agama" class="form-control">
 						    <option value="Katolik" <?php if (isset($agama) && $agama=="Katolik") echo "selected";?>>Katolik</option>
 						    <option value="Kristen" <?php if (isset($agama) && $agama=="Kristen") echo "selected";?>>Kristen</option>
 						    <option value="Islam" <?php if (isset($agama) && $agama=="Islam") echo "selected";?>>Islam</option>
@@ -557,6 +559,7 @@
 						<input type="text" name="ibu" class="form-control" class="form-control" value="<?php echo $ibu;?>"><span class="error"><?php echo $ibuErr;?></span><br>
 					</div>
 				</div>
+				<br>
 				<div class="row">
 					<div class="col-md-8 col-sm-6">
 						<input type="submit" name="submit" class="btn btn-primary">
