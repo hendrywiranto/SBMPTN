@@ -260,110 +260,110 @@
 				if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					$flag=0;
 				  if (empty($_POST["nama_asli"])) {
-				    $nama_asliErr = "Nama is required";
+				    $nama_asliErr = " Kolom Nama anda belum diisi";
 				    $flag=1;
 				  } else {
 				    $nama_asli = test_input($_POST["nama_asli"]);
 				  }
 
 				  if (empty($_POST["nama_lju"])) {
-				    $nama_ljuErr = "Nama LJU is required";
+				    $nama_ljuErr = " Kolom Nama LJU anda belum diisi ";
 				    $flag=1;
 				  } else {
 				    $nama_lju = test_input($_POST["nama_lju"]);
 				  }
 
  				  if (empty($_POST["nisn"])) {
-				    $nisnErr = "NISN is required";
+				    $nisnErr = " Kolom NISN anda belum diisi";
 				    $flag=1;
 				  } else {
 				    $nisn = test_input($_POST["nisn"]);
 				  }
 
 				  if (empty($_POST["alamat_tetap"])) {
-				    $alamat_tetapErr = "Alamat is required";
+				    $alamat_tetapErr = " Kolom Alamat anda belum diisi";
 				    $flag=1;
 				  } else {
 				    $alamat_tetap = test_input($_POST["alamat_tetap"]);
 				  }
 
 				  if (empty($_POST["provinsi_tetap"])) {
-				    $provinsi_tetapErr = "Provinsi is required";
+				    $provinsi_tetapErr = " Kolom Provinsi anda belum diisi";
 				    $flag=1;
 				  } else {
 				    $provinsi_tetap = test_input($_POST["provinsi_tetap"]);
 				  }
 
 				  if (empty($_POST["kota_tetap"])) {
-				    $kota_tetapErr = " is required";
+				    $kota_tetapErr = " Kolom Kota Tetap anda belum diisi";
 				    $flag=1;
 				  } else {
 				    $kota_tetap = test_input($_POST["kota_tetap"]);
 				  }
 
 				  if (empty($_POST["kode_pos"])) {
-				    $kode_posErr = " is required";
+				    $kode_posErr = " Kolom Kode Pos anda belum diisi";
 				    $flag=1;
 				  } else {
 				    $kode_pos = test_input($_POST["kode_pos"]);
 				  }
 
 				  if (empty($_POST["telepon"])) {
-				    $teleponErr = " is required";
+				    $teleponErr = " Kolom Telepon anda belum diisi";
 				    $flag=1;
 				  } else {
 				    $telepon = test_input($_POST["telepon"]);
 				  }
 
 				  if (empty($_POST["email"])) {
-				    $emailErr = " is required";
+				    $emailErr = " Kolom Email anda belum diisi";
 				    $flag=1;
 				  } else {
 				    $email = test_input($_POST["email"]);
 					if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-					  $emailErr = "Invalid email format"; 
+					  $emailErr = "Format Email salah"; 
 					  $email="";
 					  $flag=1;
 					}
 				  }
 
 				  if (empty($_POST["provinsi_lahir"])) {
-				    $provinsi_lahirErr = " is required";
+				    $provinsi_lahirErr = " Kolom Provinsi Lahir anda belum diisi";
 				    $flag=1;
 				  } else {
 				    $provinsi_lahir = test_input($_POST["provinsi_lahir"]);
 				  }
 
 				  if (empty($_POST["kota_lahir"])) {
-				    $kota_lahirErr = " is required";
+				    $kota_lahirErr = " Kolom Kota Lahir anda belum diisi";
 				    $flag=1;
 				  } else {
 				    $kota_lahir = test_input($_POST["kota_lahir"]);
 				  }
 
 				  if (empty($_POST["tanggal_lahir"])) {
-				    $tanggal_lahirErr = " is required";
+				    $tanggal_lahirErr = " Kolom Tanggal Lahir anda belum diisi";
 				    $flag=1;
 				  } else {
 				    $tanggal_lahir = test_input($_POST["tanggal_lahir"]);
 				  }
 
 				  if (empty($_POST["kewarganegaraan"])) {
-				    $kewarganegaraanErr = " is required";
+				    $kewarganegaraanErr = " Kolom Kewarganegaraan anda belum diisi";
 				    $flag=1;
 				  } else {
 				    $kewarganegaraan = test_input($_POST["kewarganegaraan"]);
 				  }
 
 				  if (empty($_POST["ayah"])) {
-				    $ayahErr = " is required";
+				    $ayahErr = " Kolom Nama Ayah anda belum diisi";
 				    $flag=1;
 				  } else {
 				    $ayah = test_input($_POST["ayah"]);
 				  }
 
 				  if (empty($_POST["ibu"])) {
-				    $ibuErr = " is required";
+				    $ibuErr = " Kolom Nama Ibu anda belum diisi";
 				    $flag=1;
 				  } else {
 				    $ibu = test_input($_POST["ibu"]);
@@ -372,7 +372,7 @@
 				  $jenis_kelamin=$_POST["jenis_kelamin"];
 				  $agama=$_POST["agama"];
 				  if ($UploadedFileName==''){
-				  	$pasfotoErr="Foto is required";
+				  	$pasfotoErr=" Upload foto anda";
 				  	$flag=1;
 				  }
 				  else if($UploadedFileName!='' and $flag==0)
@@ -401,127 +401,127 @@
 				
 			}
 		?>
-		<div class="container">
+		<div class="container text-left">
 			<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
 				<div class="row">
-					<div class="col-md-3">
+					<div class="col-md-8 col-sm-6">
 						Pasfoto
 					</div>
-					<div class="col-md-3">
-						<input type="file" name="pasfoto" value="<?php echo $nama_asli;?>"><span class="error"><?php echo $pasfotoErr;?></span><br>
+					<div class="col-md-8 col-sm-6">
+						<input type="file" name="pasfoto" class="btn btn-basic" value="<?php echo $nama_asli;?>"><span class="error"><?php echo $pasfotoErr;?></span><br>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-3">
+					<div class="col-md-8 col-sm-6">
 						Nama dalam ijazah 
 					</div>
-					<div class="col-md-3">
-						<input type="text" name="nama_asli" value="<?php echo $nama_asli;?>"><span class="error"><?php echo $nama_asliErr;?></span><br>
+					<div class="col-md-8 col-sm-6">
+						<input type="text" name="nama_asli" class="form-control" value="<?php echo $nama_asli;?>"><span class="error"><?php echo $nama_asliErr;?></span><br>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-3">
+					<div class="col-md-8 col-sm-6">
 						Nama dalam LJU
 					</div>
-					<div class="col-md-3">
-						<input type="text" name="nama_lju" value="<?php echo $nama_lju;?>"><span class="error"><?php echo $nama_ljuErr;?></span><br>
+					<div class="col-md-8 col-sm-6">
+						<input type="text" name="nama_lju" class="form-control" value="<?php echo $nama_lju;?>"><span class="error"><?php echo $nama_ljuErr;?></span><br>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-3">
+					<div class="col-md-8 col-sm-6">
 						NISN
 					</div>
-					<div class="col-md-3">
-						<input type="text" name="nisn" value="<?php echo $nisn;?>"><span class="error"><?php echo $nisnErr;?></span><br>
+					<div class="col-md-8 col-sm-6">
+						<input type="text" name="nisn" class="form-control" value="<?php echo $nisn;?>"><span class="error"><?php echo $nisnErr;?></span><br>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-3">
+					<div class="col-md-8 col-sm-6">
 						Alamat tetap
 					</div>
-					<div class="col-md-3">
-						<textarea name="alamat_tetap" rows="5" cols="100"><?php echo $alamat_tetap;?></textarea><span class="error"><?php echo $alamat_tetapErr;?></span>
+					<div class="col-md-8 col-sm-6">
+						<textarea name="alamat_tetap" class="form-control" rows="5" cols="100"><?php echo $alamat_tetap;?></textarea><span class="error"><?php echo $alamat_tetapErr;?></span>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-3">
+					<div class="col-md-8 col-sm-6">
 						Provinsi
 					</div>
-					<div class="col-md-3">
-						<input type="text" name="provinsi_tetap" value="<?php echo $provinsi_tetap;?>"><span class="error"><?php echo $provinsi_tetapErr;?></span><br>
+					<div class="col-md-8 col-sm-6">
+						<input type="text" name="provinsi_tetap" class="form-control" value="<?php echo $provinsi_tetap;?>"><span class="error"><?php echo $provinsi_tetapErr;?></span><br>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-3">
+					<div class="col-md-8 col-sm-6">
 						Kabupaen/kota
 					</div>
-					<div class="col-md-3">
-						<input type="text" name="kota_tetap" value="<?php echo $kota_tetap;?>"><span class="error"><?php echo $kota_tetapErr;?></span><br>
+					<div class="col-md-8 col-sm-6">
+						<input type="text" name="kota_tetap" class="form-control" value="<?php echo $kota_tetap;?>"><span class="error"><?php echo $kota_tetapErr;?></span><br>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-3">
+					<div class="col-md-8 col-sm-6">
 						Kode pos
 					</div>
-					<div class="col-md-3">
-						<input type="text" name="kode_pos" value="<?php echo $kode_pos;?>"><span class="error"><?php echo $kode_posErr;?></span><br>
+					<div class="col-md-8 col-sm-6">
+						<input type="text" name="kode_pos" class="form-control" value="<?php echo $kode_pos;?>"><span class="error"><?php echo $kode_posErr;?></span><br>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-3">
+					<div class="col-md-8 col-sm-6">
 						Telepon/HP
 					</div>
-					<div class="col-md-3">
-						<input type="text" name="telepon" value="<?php echo $telepon;?>"><span class="error"><?php echo $teleponErr;?></span><br>
+					<div class="col-md-8 col-sm-6">
+						<input type="text" name="telepon" class="form-control" value="<?php echo $telepon;?>"><span class="error"><?php echo $teleponErr;?></span><br>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-3">
+					<div class="col-md-8 col-sm-6">
 						Email
 					</div>
-					<div class="col-md-3">
-						<input type="text" name="email" value="<?php echo $email;?>"><span class="error"><?php echo $emailErr;?></span><br>
+					<div class="col-md-8 col-sm-6">
+						<input type="text" name="email" class="form-control" value="<?php echo $email;?>"><span class="error"><?php echo $emailErr;?></span><br>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-3">
+					<div class="col-md-8 col-sm-6">
 						Provinsi tempat lahir
 					</div>
-					<div class="col-md-3">
-						<input type="text" name="provinsi_lahir" value="<?php echo $provinsi_lahir;?>"><span class="error"><?php echo $provinsi_lahirErr;?></span><br>
+					<div class="col-md-8 col-sm-6">
+						<input type="text" name="provinsi_lahir" class="form-control" value="<?php echo $provinsi_lahir;?>"><span class="error"><?php echo $provinsi_lahirErr;?></span><br>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-3">
+					<div class="col-md-8 col-sm-6">
 						Kabupaten/kota tempat lahir
 					</div>
-					<div class="col-md-3">
-						<input type="text" name="kota_lahir" value="<?php echo $kota_lahir;?>"><span class="error"><?php echo $kota_lahirErr;?></span><br>
+					<div class="col-md-8 col-sm-6">
+						<input type="text" name="kota_lahir" class="form-control" value="<?php echo $kota_lahir;?>"><span class="error"><?php echo $kota_lahirErr;?></span><br>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-3">
+					<div class="col-md-8 col-sm-6">
 						Tanggal lahir
 					</div>
-					<div class="col-md-3">
-						<input type="date" name="tanggal_lahir" value="<?php echo $tanggal_lahir;?>"><span class="error"><?php echo $tanggal_lahirErr;?></span><br>
+					<div class="col-md-8 col-sm-6">
+						<input type="date" name="tanggal_lahir" class="form-control" value="<?php echo $tanggal_lahir;?>"><span class="error"><?php echo $tanggal_lahirErr;?></span><br>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-3">
+					<div class="col-md-8 col-sm-6">
 						Jenis kelamin 
 					</div>
-					<div class="col-md-3">
+					<div class="col-md-8 col-sm-6">
 						<input type="radio" name="jenis_kelamin" value="male" checked>Male 
 						<input type="radio" name="jenis_kelamin" value="female" <?php if (isset($jenis_kelamin) && $jenis_kelamin=="female") echo "checked";?>>Female
 						<span class="error"><?php echo $jenis_kelaminErr;?></span>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-3">
+					<div class="col-md-8 col-sm-6">
 						Agama
 					</div>
-					<div class="col-md-3">
+					<div class="col-md-8 col-sm-6">
 						<select name="agama">
 						    <option value="Katolik" <?php if (isset($agama) && $agama=="Katolik") echo "selected";?>>Katolik</option>
 						    <option value="Kristen" <?php if (isset($agama) && $agama=="Kristen") echo "selected";?>>Kristen</option>
@@ -534,32 +534,32 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-3">
+					<div class="col-md-8 col-sm-6">
 						Kewarganegaraan
 					</div>
-					<div class="col-md-3">
-						<input type="text" name="kewarganegaraan" value="<?php echo $kewarganegaraan;?>"><span class="error"><?php echo $kewarganegaraanErr;?></span><br>
+					<div class="col-md-8 col-sm-6">
+						<input type="text" name="kewarganegaraan" class="form-control" value="<?php echo $kewarganegaraan;?>"><span class="error"><?php echo $kewarganegaraanErr;?></span><br>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-3">
+					<div class="col-md-8 col-sm-6">
 						Nama ayah
 					</div>
-					<div class="col-md-3">
-						<input type="text" name="ayah" value="<?php echo $ayah;?>"><span class="error"><?php echo $ayahErr;?></span><br>
+					<div class="col-md-8 col-sm-6">
+						<input type="text" name="ayah" class="form-control" value="<?php echo $ayah;?>"><span class="error"><?php echo $ayahErr;?></span><br>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-3">
+					<div class="col-md-8 col-sm-6">
 						Nama ibu
 					</div>
-					<div class="col-md-3">
-						<input type="text" name="ibu" value="<?php echo $ibu;?>"><span class="error"><?php echo $ibuErr;?></span><br>
+					<div class="col-md-8 col-sm-6">
+						<input type="text" name="ibu" class="form-control" class="form-control" value="<?php echo $ibu;?>"><span class="error"><?php echo $ibuErr;?></span><br>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-3">
-						<input type="submit" name="submit">
+					<div class="col-md-8 col-sm-6">
+						<input type="submit" name="submit" class="btn btn-primary">
 					</div>
 				</div>
 			</form>
