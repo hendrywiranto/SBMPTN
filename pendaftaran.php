@@ -388,8 +388,8 @@
 						}
 						$row = mysqli_fetch_array($sql);
 						if($row[0]==0){
-							echo "<p>$row[1] anda sudah bisa login</p>";
-							echo "<a href='login.php'>Login</a>";
+							echo "<p>$row[1] Anda sudah bisa login</p>";
+							echo "<a href='login.php' class='btn btn-basic'>Login</a><br>";
 							$pasfotoErr=$nama_asliErr = $nama_ljuErr = $nisnErr = $alamat_tetapErr = $provinsi_tetapErr = $kota_tetapErr = $kode_posErr = $teleponErr = $emailErr = $provinsi_lahirErr = $kota_lahirErr = $tanggal_lahirErr = $jenis_kelaminErr = $agamaErr = $kewarganegaraanErr = $ayahErr = $ibuErr = "";
 							$nama_asli = $nama_lju = $nisn = $alamat_tetap = $provinsi_tetap = $kota_tetap= $kode_pos= $telepon= $email= $provinsi_lahir= $kota_lahir= $tanggal_lahir= $jenis_kelamin= $agama= $kewarganegaraan= $ayah= $ibu= "";
 						} else {
@@ -406,10 +406,10 @@
 		<div class="container text-left">
 			<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
 				<div class="row">
-					<div class="col-md-8 col-sm-8">
+					<div class="col-md-4 col-sm-6">
 						<b>Pasfoto</b>
 					</div>
-					<div class="col-md-8 col-sm-8">
+					<div class="col-md-8 col-sm-6">
 						<input type="file" name="pasfoto" value="<?php echo $nama_asli;?>"><span class="error"><?php echo $pasfotoErr;?></span><br>
 					</div>
 				</div>
