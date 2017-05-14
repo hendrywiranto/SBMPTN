@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>SBMPTN - Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  body {
+      font: 400 15px Lato, sans-serif;
+      line-height: 1.8;
+      color: #818181;
+  }
+  h2 {
+      font-size: 24px;
+      text-transform: uppercase;
+      color: #303030;
+      font-weight: 600;
+      margin-bottom: 30px;
+  }
+  h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      color: #303030;
+      font-weight: 400;
+      margin-bottom: 0px;
+  }  
+  .jumbotron {
+      background-color: #2e72b6;
+      color: #fff;
+      padding: 40px 10px;
+      font-family: Montserrat, sans-serif;
+  }
+  .container-fluid {
+      padding: 60px 50px;
+  }
+  .bg-grey {
+      background-color: #f6f6f6;
+  }
+
+  .logo-small {
+      color: #428BCA;
+      font-size: 50px;
+  }
+  .logo {
+      color: #428BCA;
+      font-size: 200px;
+  }
+  .thumbnail {
+      padding: 0 0 15px 0;
+      border: none;
+      border-radius: 0;
+  }
+  .thumbnail img {
+      width: 100%;
+      height: 100%;
+      margin-bottom: 10px;
+  }
+  .carousel-control.right, .carousel-control.left {
+      background-image: none;
+      color: #428BCA;
+  }
+  .carousel-indicators li {
+      border-color: #428BCA;
+  }
+  .carousel-indicators li.active {
+      background-color: #428BCA;
+  }
+  .item h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      font-weight: 400;
+      font-style: italic;
+      margin: 70px 0;
+  }
+  .item span {
+      font-style: normal;
+  }
+  .panel {
+      border: 1px solid #428BCA; 
+      border-radius:0 !important;
+      transition: box-shadow 0.5s;
+  }
+  .panel:hover {
+      box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+  }
+  .panel-footer .btn:hover {
+      border: 1px solid #428BCA;
+      background-color: #fff !important;
+      color: #1976D2;
+  }
+  .panel-heading {
+      color: #fff !important;
+      background-color: #428BCA !important;
+      padding: 25px;
+      border-bottom: 1px solid transparent;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+  }
+  .panel-footer {
+      background-color: white !important;
+  }
+  .panel-footer h3 {
+      font-size: 32px;
+  }
+  .panel-footer h4 {
+      color: #aaa;
+      font-size: 14px;
+  }
+  .panel-footer .btn {
+      margin: 15px 0;
+      background-color: #428BCA;
+      color: #fff;
+  }
+  .navbar {
+      margin-bottom: 0;
+      background-color: #2e72b6;
+      z-index: 9999;
+      border: 0;
+      font-size: 12px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 4px;
+      border-radius: 0;
+      font-family: Montserrat, sans-serif;
+  }
+  .navbar li a, .navbar .navbar-brand {
+      color: #fff !important;
+  }
+  .navbar-nav li a:hover {
+      color: #428BCA !important;
+      background-color: #fff !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff !important;
+  }
+  footer .glyphicon {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #428BCA;
+  }
+  .slideanim {visibility:hidden;}
+  .slide {
+      animation-name: slide;
+      -webkit-animation-name: slide;
+      animation-duration: 1s;
+      -webkit-animation-duration: 1s;
+      visibility: visible;
+  }
+  @keyframes slide {
+    0% {
+      opacity: 0;
+      transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+        font-size: 150px;
+    }
+  }
+  </style>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="index.html">SBMPTN</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown" style="background-color:#428BCA">
+        <a class="dropdown-toggle" data-toggle="dropdown">Home
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu" style="background-color:#2e72b6">
+            <li><a href="index.html#ktpengantar" >Kata Pengantar</a></li>
+            <li><a href="index.html#ltrblk">Latar Belakang</a></li>
+            <li><a href="index.html#tujuan">Tujuan</a></li>
+		</ul>
+		</li>	
+        <li><a href="informasi.html">Informasi</a></li>
+        <li><a href="jadwal.html">Jadwal</a></li>
+        <li><a href="aturan.html">Aturan</a></li>
+        <li><a href="pendaftaran.php">Pendaftaran</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron">
+  <table>
+    <td align="left">  
+      <img src="http://sbmptn.ac.id/images/logosbmptn.gif" alt="LogoSBMPTN" width="160" height="160">
+    </td>
+    <td>
+      <h1>
+        <font><b>SBMPTN</b></font>
+        <font style="color:#FF871B">2017</font>
+      </h1>
+      <p>Seleksi Bersama Masuk Perguruan Tinggi Negeri Tahun 2017</p>
+    </td>
+  </table>
+  </div>
+
+<tr>
+  <td id="news">
+   <marquee>News: PANLOK 11 menyelenggarakan ujian keterampilan Olah Raga, Seni Rupa, Sendratasik, Seni Tari, dan Seni Musik di Universitas Syiah Kuala | Waktu Pembayaran biaya seleksi DIPERPANJANG sampai pada hari Senin, 8 Mei 2017 pukul 16.00 WIB. | Penuntasan Pendaftaran SBMPTN 2017 DIPERPANJANG sampai pada hari Selasa, 9 Mei 2017 pukul 16.00 WIB.</marquee>
+  </td>
+</tr>  
+
+<div id="main" class="container-fluid text-center">
+      <h1>SELAMAT DATANG DI LAMAN RESMI SELEKSI BERSAMA MASUK PERGURUAN TINGGI NEGERI TAHUN 2017</h1>
+</div>
+
+<div id="ktpengantar" class="container-fluid bg-grey">
+   <h2>Kata Pengantar</h2><br>
+   <h4>Berdasarkan Undang-Undang Nomor 12 Tahun 2012 tentang Pendidikan Tinggi, Peraturan Pemerintah Nomor 4 Tahun 2014 tentang Penyelenggaraan Pendidikan Tinggi dan Pengelolaan Perguruan Tinggi, Peraturan Menteri Riset, Teknologi, dan Pendidikan Tinggi Nomor 126 Tahun 2016  tentang Penerimaan Mahasiswa Baru Program Sarjana pada Perguruan Tinggi Negeri, dilakukan melalui: Seleksi Nasional Masuk Perguruan Tinggi Negeri (SNMPTN), Seleksi Bersama Masuk Perguruan Tinggi Negeri (SBMPTN), dan Seleksi Mandiri. SBMPTN  2017 adalah seleksi berdasarkan hasil ujian tertulis dalam bentuk cetak (paper based testing) atau menggunakan komputer (computer based testing), atau kombinasi hasil ujian tertulis dan ujian keterampilan calon Mahasiswa, dilakukan secara bersama di bawah koordinasi panitia pusat.</h4><br>
+   <p>Pembiayaan penyelenggaraan SBMPTN dibebankan kepada peserta seleksi dan Kementerian Riset, Teknologi dan Pendidikan Tinggi. Peserta SBMPTN dari keluarga kurang mampu secara ekonomi dan mempunyai prestasi akademik tinggi dapat mengajukan dana bantuan biaya pendidikan Bidikmisi.</p>
+</div>
+
+<div id="ltrblk" class="container-fluid">
+   <h2 style=>Latar Belakang</h2><br>
+   <p>Seleksi bersama dalam penerimaan mahasiswa baru di lingkungan PTN  melalui ujian tertulis secara nasional yang selama ini telah dilakukan menunjukkan berbagai keuntungan dan keunggulan, baik bagi peserta, PTN, maupun bagi kepentingan nasional. Bagi peserta, seleksi bersama menguntungkan karena lebih efisien, murah, dan fleksibel. Hal ini dikarenakan adanya mekanisme lintas wilayah.
+<br><br>
+Berdasarkan pengalaman dalam melaksanakan SBMPTN, yaitu seleksi penerimaan mahasiswa baru melalui ujian tertulis atau kombinasi hasil ujian tertulis dan ujian keterampilan, maka pada tahun 2017 melaksanakan Ujian tertulis yang terdiri dari Paper-Based Testing (PBT) dan Computer-Based Testing (CBT), yang dapat diikuti oleh siswa lulusan tahun 2015, 2016, dan 2017 dari pendidikan menengah (SMA/MA/SMK) dan sederajat, serta lulusan Paket C tahun 2015, 2016, dan 2017.
+<br><br>
+Ujian tertulis yang terdiri dari PBT dan CBT menggunakan soal-soal ujian yang dirancang mengikuti kaidah-kaidah akademik pengembangan tes. Ujian tertulis SBMPTN dirancang untuk mengukur kemampuan dasar yang dapat memprediksi keberhasilan calon mahasiswa di semua program studi, yakni kemampuan penalaran tingkat tinggi (higher order thinking), yang meliputi potensi akademik, penguasaan bidang studi dasar, bidang sains dan teknologi (saintek) dan/atau bidang sosial dan humaniora (soshum). Selain mengikuti ujian tertulis (PBT atau CBT), peserta yang memilih program studi Ilmu Seni dan/atau Keolahragaan diwajibkan mengikuti ujian keterampilan.</p>
+</div>
+
+<div id="tujuan" class="container-fluid bg-grey">
+   <h2>Tujuan</h2><br>
+   <h4>Tujuan SBMPTN 2017 adalah sebagai berikut:</h4><br>
+   <ol>  
+		<li>Menyeleksi calon mahasiswa yang diprediksi mampu menyelesaikan studi di perguruan tinggi dengan baik.</li>
+		<li>Memberi kesempatan bagi calon mahasiswa untuk memilih lebih dari satu PTN lintas wilayah.</li>
+   </ol>
+</div>
+
+<footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <p>Back to top</p>
+  </a>
+  <p>In Partnership with:</p>
+  <br>
+  <div class="col-sm-4">
+  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/fa/Bank_Mandiri_logo.svg/1280px-Bank_Mandiri_logo.svg.png" id="mandiri" width=170 height=50>
+  </div>
+  <div class="col-sm-4">
+  <img src="https://upload.wikimedia.org/wikipedia/id/archive/a/a6/20161103140142%21Logo_Bank_BTN.png" id="btn" width=230 height=50>
+  </div>
+  <div class="col-sm-4">
+  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/27/BankNegaraIndonesia46-logo.svg/800px-BankNegaraIndonesia46-logo.svg.png" id="bni" width=153 height=50>
+  </div>
+  <br><br><br>
+  <div class="col">
+  <p>And also</p>
+  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c4/Telkom_Indonesia_2013.svg/1280px-Telkom_Indonesia_2013.svg.png" id="telkom" width=180 height=100>
+  </div>
+  <br><br><br>
+  <img src="http://apply.darmasiswa.kemdikbud.go.id/assets/images/big-logo.png" alt="Kemendikbud" width="64" height="60">
+  <p>© SBMPTN 2017</p>
+</footer>
+
+<script>
+$(document).ready(function(){
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+      var hash = this.hash;
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+        window.location.hash = hash;
+      });
+    } 
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+
+</body>
+</html>
