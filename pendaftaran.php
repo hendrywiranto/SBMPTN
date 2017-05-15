@@ -44,6 +44,12 @@
   .error{
 	  color:#B71C1C;
   }
+  .btn-large{
+	  padding: 10px 15px;
+	  font-size: 20px;
+	  border-radius: 10px;
+	  width: 100px;
+  }
   .logo-small {
       color: #428BCA;
       font-size: 50px;
@@ -241,11 +247,12 @@
       <h1>PENDAFTARAN SELEKSI BERSAMA MASUK PERGURUAN TINGGI NEGERI TAHUN 2017</h1>
 </div>
 
-<div id="daftar" class="container-fluid text-center bg-grey">
       <?php
 
-			$pasfotoErr=$nama_asliErr = $nama_ljuErr = $nisnErr = $alamat_tetapErr = $provinsi_tetapErr = $kota_tetapErr = $kode_posErr = $teleponErr = $emailErr = $provinsi_lahirErr = $kota_lahirErr = $tanggal_lahirErr = $jenis_kelaminErr = $agamaErr = $kewarganegaraanErr = $ayahErr = $ibuErr = "";
-			$nama_asli = $nama_lju = $nisn = $alamat_tetap = $provinsi_tetap = $kota_tetap= $kode_pos= $telepon= $email= $provinsi_lahir= $kota_lahir= $tanggal_lahir= $jenis_kelamin= $agama= $kewarganegaraan= $ayah= $ibu= "";
+			$pasfotoErr=$nama_asliErr = $nama_ljuErr = $nisnErr = $alamat_tetapErr = $provinsi_tetapErr = $kota_tetapErr = $kode_posErr = $teleponErr = $emailErr = $provinsi_lahirErr = $kota_lahirErr = $tanggal_lahirErr = $jenis_kelaminErr = $agamaErr = $kewarganegaraanErr = $ayahErr = $ibuErr = $prodi1Err= $univ1Err= $prodi2Err= $univ2Err= $prodi3Err= $univ3Err= "";
+
+			$nama_asli = $nama_lju = $nisn = $alamat_tetap = $provinsi_tetap = $kota_tetap= $kode_pos= $telepon= $email= $provinsi_lahir= $kota_lahir= $tanggal_lahir= $jenis_kelamin= $agama= $kewarganegaraan= $ayah= $ibu= $prodi1= $univ1= $prodi2= $univ2= $prodi3= $univ3= "";
+
 			$flag='';
 
 			if(isset($_POST['submit'])){
@@ -349,7 +356,18 @@
 				  } else {
 				    $tanggal_lahir = test_input($_POST["tanggal_lahir"]);
 				  }
-
+				  if (empty($_POST["jenis_kelamin"])) {
+				    $jenis_kelaminErr = " Kolom jenis kelamin anda belum diisi";
+				    $flag=1;
+				  } else {
+				    $jenis_kelamin = test_input($_POST["jenis_kelamin"]);
+				  }
+				  if (empty($_POST["agama"])) {
+				    $agamaErr = " Kolom agama anda belum diisi";
+				    $flag=1;
+				  } else {
+				    $agama = test_input($_POST["agama"]);
+				  }
 				  if (empty($_POST["kewarganegaraan"])) {
 				    $kewarganegaraanErr = " Kolom Kewarganegaraan anda belum diisi";
 				    $flag=1;
@@ -370,9 +388,48 @@
 				  } else {
 				    $ibu = test_input($_POST["ibu"]);
 				  }
-				 #$tanggal_lahir=$_POST["tanggal_lahir"];
-				  $jenis_kelamin=$_POST["jenis_kelamin"];
-				  $agama=$_POST["agama"];
+				  if (empty($_POST["ibu"])) {
+				    $ibuErr = " Kolom Nama Ibu anda belum diisi";
+				    $flag=1;
+				  } else {
+				    $ibu = test_input($_POST["ibu"]);
+				  }
+				  if (empty($_POST["prodi1"])) {
+				    $prodi1Err = " Kolom Nama Prodi 1 anda belum diisi";
+				    $flag=1;
+				  } else {
+				    $prodi1 = test_input($_POST["prodi1"]);
+				  }
+				  if (empty($_POST["univ1"])) {
+				    $univ1Err = " Kolom Universitas 1 anda belum diisi";
+				    $flag=1;
+				  } else {
+				    $univ1 = test_input($_POST["univ1"]);
+				  }
+				  if (empty($_POST["prodi2"])) {
+				    $prodi2Err = " Kolom Nama Prodi 2 anda belum diisi";
+				    $flag=1;
+				  } else {
+				    $prodi2 = test_input($_POST["prodi2"]);
+				  }
+				  if (empty($_POST["univ2"])) {
+				    $univ2Err = " Kolom Universitas 2 anda belum diisi";
+				    $flag=1;
+				  } else {
+				    $univ2 = test_input($_POST["univ2"]);
+				  }
+				  if (empty($_POST["prodi3"])) {
+				    $prodi3Err = " Kolom Nama Prodi 3 anda belum diisi";
+				    $flag=1;
+				  } else {
+				    $prodi3 = test_input($_POST["prodi3"]);
+				  }
+				  if (empty($_POST["univ3"])) {
+				    $univ3Err = " Kolom Universitas 3 anda belum diisi";
+				    $flag=1;
+				  } else {
+				    $univ3 = test_input($_POST["univ3"]);
+				  }
 				  if ($UploadedFileName==''){
 				  	$pasfotoErr=" Upload foto anda";
 				  	$flag=1;
@@ -383,15 +440,16 @@
 						$upload_directory = "uploads/";
 						$TargetPath=time().$UploadedFileName;
 						if(move_uploaded_file($_FILES['pasfoto']['tmp_name'], $upload_directory.$TargetPath)){    					
-							$query = "CALL sp_daftar('$TargetPath','$nama_asli','$nama_lju','$nisn','$alamat_tetap','$provinsi_tetap','$kota_tetap','$kode_pos','$telepon','$email','$provinsi_lahir','$kota_lahir','$tanggal_lahir','$jenis_kelamin','$agama','$kewarganegaraan','$ayah','$ibu');";
+							$query = "CALL sp_daftar('$upload_directory$TargetPath','$nama_asli','$nama_lju','$nisn','$alamat_tetap','$provinsi_tetap','$kota_tetap','$kode_pos','$telepon','$email','$provinsi_lahir','$kota_lahir','$tanggal_lahir','$jenis_kelamin','$agama','$kewarganegaraan','$ayah','$ibu','$prodi1', '$univ1', '$prodi2', '$univ2', '$prodi3', '$univ3');";
 							$sql = mysqli_query($db,$query) or die("Query fail : ".mysqli_error());  	
 						}
 						$row = mysqli_fetch_array($sql);
 						if($row[0]==0){
-							echo "<p>$row[1] anda sudah bisa login</p>";
-							echo "<a href='login.php'>Login</a>";
-							$pasfotoErr=$nama_asliErr = $nama_ljuErr = $nisnErr = $alamat_tetapErr = $provinsi_tetapErr = $kota_tetapErr = $kode_posErr = $teleponErr = $emailErr = $provinsi_lahirErr = $kota_lahirErr = $tanggal_lahirErr = $jenis_kelaminErr = $agamaErr = $kewarganegaraanErr = $ayahErr = $ibuErr = "";
-							$nama_asli = $nama_lju = $nisn = $alamat_tetap = $provinsi_tetap = $kota_tetap= $kode_pos= $telepon= $email= $provinsi_lahir= $kota_lahir= $tanggal_lahir= $jenis_kelamin= $agama= $kewarganegaraan= $ayah= $ibu= "";
+							echo "<p>$row[1] Anda sudah bisa login</p>";
+							echo "<a href='login.php' class='btn btn-basic'>Login</a><br>";
+							$pasfotoErr=$nama_asliErr = $nama_ljuErr = $nisnErr = $alamat_tetapErr = $provinsi_tetapErr = $kota_tetapErr = $kode_posErr = $teleponErr = $emailErr = $provinsi_lahirErr = $kota_lahirErr = $tanggal_lahirErr = $jenis_kelaminErr = $agamaErr = $kewarganegaraanErr = $ayahErr = $ibuErr = $prodi1Err= $univ1Err= $prodi2Err= $univ2Err= $prodi3Err= $univ3Err= "";
+
+							$nama_asli = $nama_lju = $nisn = $alamat_tetap = $provinsi_tetap = $kota_tetap= $kode_pos= $telepon= $email= $provinsi_lahir= $kota_lahir= $tanggal_lahir= $jenis_kelamin= $agama= $kewarganegaraan= $ayah= $ibu= $prodi1= $univ1= $prodi2= $univ2= $prodi3= $univ3= "";
 						} else {
 							$email='';
 							$emailErr='Email sudah dipakai';
@@ -403,13 +461,15 @@
 				
 			}
 		?>
+	<div id="daftar" class="container-fluid bg-grey">
 		<div class="container text-left">
+			<h2 class="text-center" style="color:black">DATA DIRI</h2>
 			<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
 				<div class="row">
-					<div class="col-md-8 col-sm-8">
+					<div class="col-md-4 col-sm-6">
 						<b>Pasfoto</b>
 					</div>
-					<div class="col-md-8 col-sm-8">
+					<div class="col-md-8 col-sm-6">
 						<input type="file" name="pasfoto" value="<?php echo $nama_asli;?>"><span class="error"><?php echo $pasfotoErr;?></span><br>
 					</div>
 				</div>
@@ -418,7 +478,7 @@
 						<b>Nama dalam ijazah</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
-						<input type="text" name="nama_asli" class="form-control" value="<?php echo $nama_asli;?>"><span class="error"><?php echo $nama_asliErr;?></span><br>
+						<input type="text" name="nama_asli" class="form-control" placeholder="Nama" value="<?php echo $nama_asli;?>"><span class="error"><?php echo $nama_asliErr;?></span><br>
 					</div>
 				</div>
 				<div class="row">
@@ -426,7 +486,7 @@
 						<b>Nama dalam LJU</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
-						<input type="text" name="nama_lju" class="form-control" value="<?php echo $nama_lju;?>"><span class="error"><?php echo $nama_ljuErr;?></span><br>
+						<input type="text" name="nama_lju" class="form-control" placeholder="Nama LJU" value="<?php echo $nama_lju;?>"><span class="error"><?php echo $nama_ljuErr;?></span><br>
 					</div>
 				</div>
 				<div class="row">
@@ -434,7 +494,7 @@
 						<b>NISN</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
-						<input type="text" name="nisn" class="form-control" value="<?php echo $nisn;?>"><span class="error"><?php echo $nisnErr;?></span><br>
+						<input type="text" name="nisn" class="form-control" placeholder="NISN" value="<?php echo $nisn;?>"><span class="error"><?php echo $nisnErr;?></span><br>
 					</div>
 				</div>
 				<div class="row">
@@ -442,7 +502,7 @@
 						<b>Alamat tetap</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
-						<textarea name="alamat_tetap" class="form-control" rows="5" cols="100"><?php echo $alamat_tetap;?></textarea><span class="error"><?php echo $alamat_tetapErr;?></span>
+						<textarea name="alamat_tetap" class="form-control" placeholder="Alamat" rows="5" cols="100"><?php echo $alamat_tetap;?></textarea><span class="error"><?php echo $alamat_tetapErr;?></span>
 					</div>
 				</div>
 				<div class="row">
@@ -450,7 +510,7 @@
 						<br><b>Provinsi</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
-						<br><input type="text" name="provinsi_tetap" class="form-control" value="<?php echo $provinsi_tetap;?>"><span class="error"><?php echo $provinsi_tetapErr;?></span><br>
+						<br><input type="text" name="provinsi_tetap" class="form-control" placeholder="Provinsi" value="<?php echo $provinsi_tetap;?>"><span class="error"><?php echo $provinsi_tetapErr;?></span><br>
 					</div>
 				</div>
 				<div class="row">
@@ -458,7 +518,7 @@
 						<b>Kabupaen/kota</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
-						<input type="text" name="kota_tetap" class="form-control" value="<?php echo $kota_tetap;?>"><span class="error"><?php echo $kota_tetapErr;?></span><br>
+						<input type="text" name="kota_tetap" class="form-control" placeholder="Kabupaten/Kota" value="<?php echo $kota_tetap;?>"><span class="error"><?php echo $kota_tetapErr;?></span><br>
 					</div>
 				</div>
 				<div class="row">
@@ -466,7 +526,7 @@
 						<b>Kode pos</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
-						<input type="text" name="kode_pos" class="form-control" value="<?php echo $kode_pos;?>"><span class="error"><?php echo $kode_posErr;?></span><br>
+						<input type="text" name="kode_pos" class="form-control" placeholder="Kode Pos" value="<?php echo $kode_pos;?>"><span class="error"><?php echo $kode_posErr;?></span><br>
 					</div>
 				</div>
 				<div class="row">
@@ -474,7 +534,7 @@
 						<b>Telepon/HP</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
-						<input type="text" name="telepon" class="form-control" value="<?php echo $telepon;?>"><span class="error"><?php echo $teleponErr;?></span><br>
+						<input type="text" name="telepon" class="form-control" placeholder="Telepon/HP" value="<?php echo $telepon;?>"><span class="error"><?php echo $teleponErr;?></span><br>
 					</div>
 				</div>
 				<div class="row">
@@ -482,7 +542,7 @@
 						<b>Email</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
-						<input type="text" name="email" class="form-control" value="<?php echo $email;?>"><span class="error"><?php echo $emailErr;?></span><br>
+						<input type="text" name="email" class="form-control" placeholder="Email" value="<?php echo $email;?>"><span class="error"><?php echo $emailErr;?></span><br>
 					</div>
 				</div>
 				<div class="row">
@@ -490,7 +550,7 @@
 						<b>Provinsi tempat lahir</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
-						<input type="text" name="provinsi_lahir" class="form-control" value="<?php echo $provinsi_lahir;?>"><span class="error"><?php echo $provinsi_lahirErr;?></span><br>
+						<input type="text" name="provinsi_lahir" class="form-control" placeholder="Provinsi Lahir" value="<?php echo $provinsi_lahir;?>"><span class="error"><?php echo $provinsi_lahirErr;?></span><br>
 					</div>
 				</div>
 				<div class="row">
@@ -498,7 +558,7 @@
 						<b>Kabupaten/kota tempat lahir</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
-						<input type="text" name="kota_lahir" class="form-control" value="<?php echo $kota_lahir;?>"><span class="error"><?php echo $kota_lahirErr;?></span><br>
+						<input type="text" name="kota_lahir" class="form-control" placeholder="Kabupaten/Kota Lahir" value="<?php echo $kota_lahir;?>"><span class="error"><?php echo $kota_lahirErr;?></span><br>
 					</div>
 				</div>
 				<div class="row">
@@ -506,7 +566,7 @@
 						<b>Tanggal lahir</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
-						<input type="date" name="tanggal_lahir" class="form-control" value="<?php echo $tanggal_lahir;?>"><span class="error"><?php echo $tanggal_lahirErr;?></span><br>
+						<input type="date" name="tanggal_lahir" class="form-control" placeholder="Tanggal Lahir" value="<?php echo $tanggal_lahir;?>"><span class="error"><?php echo $tanggal_lahirErr;?></span><br>
 					</div>
 				</div>
 				<div class="row">
@@ -514,10 +574,10 @@
 						<b>Jenis kelamin</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
-						<input type="radio" name="jenis_kelamin" value="male" checked> Laki-laki
-						<br>
+						<input type="radio" name="jenis_kelamin" value="male" <?php if (isset($jenis_kelamin) && $jenis_kelamin=="male") echo "checked";?>> Laki-laki
+						&emsp;
 						<input type="radio" name="jenis_kelamin" value="female" <?php if (isset($jenis_kelamin) && $jenis_kelamin=="female") echo "checked";?>> Perempuan
-						<span class="error"><?php echo $jenis_kelaminErr;?></span>
+						<br><span class="error"><?php echo $jenis_kelaminErr;?></span>
 					</div>
 				</div>
 				<div class="row">
@@ -526,6 +586,7 @@
 					</div>
 					<div class="col-md-8 col-sm-6">
 						<br><select name="agama" class="form-control">
+							<option value="" <?php if (!isset($agama)) echo "selected";?>>--Pilihan Agama--</option>
 						    <option value="Katolik" <?php if (isset($agama) && $agama=="Katolik") echo "selected";?>>Katolik</option>
 						    <option value="Kristen" <?php if (isset($agama) && $agama=="Kristen") echo "selected";?>>Kristen</option>
 						    <option value="Islam" <?php if (isset($agama) && $agama=="Islam") echo "selected";?>>Islam</option>
@@ -541,7 +602,7 @@
 						<br><b>Kewarganegaraan</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
-						<br><input type="text" name="kewarganegaraan" class="form-control" value="<?php echo $kewarganegaraan;?>"><span class="error"><?php echo $kewarganegaraanErr;?></span><br>
+						<br><input type="text" name="kewarganegaraan" class="form-control" placeholder="Kewarganegaraan" value="<?php echo $kewarganegaraan;?>"><span class="error"><?php echo $kewarganegaraanErr;?></span><br>
 					</div>
 				</div>
 				<div class="row">
@@ -549,7 +610,7 @@
 						<b>Nama ayah</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
-						<input type="text" name="ayah" class="form-control" value="<?php echo $ayah;?>"><span class="error"><?php echo $ayahErr;?></span><br>
+						<input type="text" name="ayah" class="form-control" placeholder="Nama Ayah" value="<?php echo $ayah;?>"><span class="error"><?php echo $ayahErr;?></span><br>
 					</div>
 				</div>
 				<div class="row">
@@ -557,43 +618,158 @@
 						<b>Nama ibu</b>
 					</div>
 					<div class="col-md-8 col-sm-6">
-						<input type="text" name="ibu" class="form-control" class="form-control" value="<?php echo $ibu;?>"><span class="error"><?php echo $ibuErr;?></span><br>
+						<input type="text" name="ibu" class="form-control" placeholder="Nama Ibu" value="<?php echo $ibu;?>"><span class="error"><?php echo $ibuErr;?></span><br>
 					</div>
 				</div>
-				<br>
-				<div class="row">
+			
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="container text-left">
+			<h2 class="text-center" style="color:black">PILIHAN PROGRAM STUDI</h2>
+			<div class="row">
+					<div class="col-md-4 col-sm-6">
+						<br><b>Universitas Pilihan 1</b>
+					</div>
 					<div class="col-md-8 col-sm-6">
-						<input type="submit" name="submit" class="btn btn-primary">
+						<br><select name="univ1" class="form-control">
+							<option value="" <?php if (!isset($univ1)) echo "selected";?>>--Pilihan Universitas 1--</option>
+						    <option value="Universitas Indonesia" <?php if (isset($univ1) && $univ1=="Universitas Indonesia") echo "selected";?>>Universitas Indonesia</option>
+						    <option value="Institut Pertanian Bogor" <?php if (isset($univ1) && $univ1=="Institut Pertanian Bogor") echo "selected";?>>Institut Pertanian Bogor</option>
+						    <option value="Institut Teknologi Bandung" <?php if (isset($univ1) && $univ1=="Institut Teknologi Bandung") echo "selected";?>>Institut Teknologi Bandung</option>
+						    <option value="Universitas Gajahmada Yogyakarta" <?php if (isset($univ1) && $univ1=="Universitas Gajahmada Yogyakarta") echo "selected";?>>Universitas Gajahmada Yogyakarta</option>
+						    <option value="Universitas Negeri Semarang" <?php if (isset($univ1) && $univ1=="Universitas Negeri Semarang") echo "selected";?>>Universitas Negeri Semarang</option>
+						    <option value="Institut Teknologi Sepuluh Nopember Surabaya" <?php if (isset($univ1) && $univ1=="Institut Teknologi Sepuluh Nopember Surabaya") echo "selected";?>>Institut Teknologi Sepuluh Nopember Surabaya</option>
+							<option value="Universitas Brawijaya Malang" <?php if (isset($univ1) && $univ1=="Universitas Brawijaya Malang") echo "selected";?>>Universitas Brawijaya Malang</option>
+						</select>
+						<span class="error"><?php echo $univ1Err;?></span>
+					</div>
+				</div>
+			<div class="row">
+					<div class="col-md-4 col-sm-6">
+						<br><b>Program studi pilihan 1</b>
+					</div>
+					<div class="col-md-8 col-sm-6">
+						<br><select name="prodi1" class="form-control">
+							<option value="" <?php if (!isset($prodi1)) echo "selected";?>>--Pilihan prodi 1--</option>
+						    <option value="Teknik Informatika" <?php if (isset($prodi1) && $prodi1=="Teknik Informatika") echo "selected";?>>Teknik Informatika</option>
+						    <option value="Teknik Industri" <?php if (isset($prodi1) && $prodi1=="Teknik Industri") echo "selected";?>>Teknik Industri</option>
+						    <option value="Teknik Fisika" <?php if (isset($prodi1) && $prodi1=="Teknik Fisika") echo "selected";?>>Teknik Fisika</option>
+						    <option value="Teknik Kimia" <?php if (isset($prodi1) && $prodi1=="Teknik Kimia") echo "selected";?>>Teknik Kimia</option>
+						    <option value="Teknik Kelautan" <?php if (isset($prodi1) && $prodi1=="Teknik Kelautan") echo "selected";?>>Teknik Kelautan</option>
+						    <option value="Teknik Perkapalan" <?php if (isset($prodi1) && $prodi1=="Teknik Perkapalan") echo "selected";?>>Teknik Perkapalan</option>
+							<option value="Teknik Mesin" <?php if (isset($prodi1) && $prodi1=="Teknik Mesin") echo "selected";?>>Teknik Mesin</option>
+						</select>
+						<span class="error"><?php echo $prodi1Err;?></span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 col-sm-6">
+						<br><b>Universitas Pilihan 2</b>
+					</div>
+					<div class="col-md-8 col-sm-6">
+						<br><select name="univ2" class="form-control">
+							<option value="" <?php if (!isset($univ2)) echo "selected";?>>--Pilihan Universitas 2--</option>
+						    <option value="Universitas Indonesia" <?php if (isset($univ2) && $univ2=="Universitas Indonesia") echo "selected";?>>Universitas Indonesia</option>
+						    <option value="Institut Pertanian Bogor" <?php if (isset($univ2) && $univ2=="Institut Pertanian Bogor") echo "selected";?>>Institut Pertanian Bogor</option>
+						    <option value="Institut Teknologi Bandung" <?php if (isset($univ2) && $univ2=="Institut Teknologi Bandung") echo "selected";?>>Institut Teknologi Bandung</option>
+						    <option value="Universitas Gajahmada Yogyakarta" <?php if (isset($univ2) && $univ2=="Universitas Gajahmada Yogyakarta") echo "selected";?>>Universitas Gajahmada Yogyakarta</option>
+						    <option value="Universitas Negeri Semarang" <?php if (isset($univ2) && $univ2=="Universitas Negeri Semarang") echo "selected";?>>Universitas Negeri Semarang</option>
+						    <option value="Institut Teknologi Sepuluh Nopember Surabaya" <?php if (isset($univ2) && $univ2=="Institut Teknologi Sepuluh Nopember Surabaya") echo "selected";?>>Institut Teknologi Sepuluh Nopember Surabaya</option>
+							<option value="Universitas Brawijaya Malang" <?php if (isset($univ2) && $univ2=="Universitas Brawijaya Malang") echo "selected";?>>Universitas Brawijaya Malang</option>
+						</select>
+						<span class="error"><?php echo $univ2Err;?></span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 col-sm-6">
+						<br><b>Program studi pilihan 2</b>
+					</div>
+					<div class="col-md-8 col-sm-6">
+						<br><select name="prodi2" class="form-control">
+							<option value="" <?php if (!isset($prodi2)) echo "selected";?>>--Pilihan prodi 2--</option>
+						    <option value="Teknik Informatika" <?php if (isset($prodi2) && $prodi2=="Teknik Informatika") echo "selected";?>>Teknik Informatika</option>
+						    <option value="Teknik Industri" <?php if (isset($prodi2) && $prodi2=="Teknik Industri") echo "selected";?>>Teknik Industri</option>
+						    <option value="Teknik Fisika" <?php if (isset($prodi2) && $prodi2=="Teknik Fisika") echo "selected";?>>Teknik Fisika</option>
+						    <option value="Teknik Kimia" <?php if (isset($prodi2) && $prodi2=="Teknik Kimia") echo "selected";?>>Teknik Kimia</option>
+						    <option value="Teknik Kelautan" <?php if (isset($prodi2) && $prodi2=="Teknik Kelautan") echo "selected";?>>Teknik Kelautan</option>
+						    <option value="Teknik Perkapalan" <?php if (isset($prodi2) && $prodi2=="Teknik Perkapalan") echo "selected";?>>Teknik Perkapalan</option>
+							<option value="Teknik Mesin" <?php if (isset($prodi2) && $prodi2=="Teknik Mesin") echo "selected";?>>Teknik Mesin</option>
+						</select>
+						<span class="error"><?php echo $prodi2Err;?></span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 col-sm-6">
+						<br><b>Universitas Pilihan 3</b>
+					</div>
+					<div class="col-md-8 col-sm-6">
+						<br><select name="univ3" class="form-control">
+							<option value="" <?php if (!isset($univ3)) echo "selected";?>>--Pilihan Universitas 3--</option>
+						    <option value="Universitas Indonesia" <?php if (isset($univ3) && $univ3=="Universitas Indonesia") echo "selected";?>>Universitas Indonesia</option>
+						    <option value="Institut Pertanian Bogor" <?php if (isset($univ3) && $univ3=="Institut Pertanian Bogor") echo "selected";?>>Institut Pertanian Bogor</option>
+						    <option value="Institut Teknologi Bandung" <?php if (isset($univ3) && $univ3=="Institut Teknologi Bandung") echo "selected";?>>Institut Teknologi Bandung</option>
+						    <option value="Universitas Gajahmada Yogyakarta" <?php if (isset($univ3) && $univ3=="Universitas Gajahmada Yogyakarta") echo "selected";?>>Universitas Gajahmada Yogyakarta</option>
+						    <option value="Universitas Negeri Semarang" <?php if (isset($univ3) && $univ3=="Universitas Negeri Semarang") echo "selected";?>>Universitas Negeri Semarang</option>
+						    <option value="Institut Teknologi Sepuluh Nopember Surabaya" <?php if (isset($univ3) && $univ3=="Institut Teknologi Sepuluh Nopember Surabaya") echo "selected";?>>Institut Teknologi Sepuluh Nopember Surabaya</option>
+							<option value="Universitas Brawijaya Malang" <?php if (isset($univ3) && $univ3=="Universitas Brawijaya Malang") echo "selected";?>>Universitas Brawijaya Malang</option>
+						</select>
+						<span class="error"><?php echo $univ3Err;?></span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 col-sm-6">
+						<br><b>Program studi pilihan 3</b>
+					</div>
+					<div class="col-md-8 col-sm-6">
+						<br><select name="prodi3" class="form-control">
+							<option value="" <?php if (!isset($prodi3)) echo "selected";?>>--Pilihan prodi 3--</option>
+						    <option value="Teknik Informatika" <?php if (isset($prodi3) && $prodi3=="Teknik Informatika") echo "selected";?>>Teknik Informatika</option>
+						    <option value="Teknik Industri" <?php if (isset($prodi3) && $prodi3=="Teknik Industri") echo "selected";?>>Teknik Industri</option>
+						    <option value="Teknik Fisika" <?php if (isset($prodi3) && $prodi3=="Teknik Fisika") echo "selected";?>>Teknik Fisika</option>
+						    <option value="Teknik Kimia" <?php if (isset($prodi3) && $prodi3=="Teknik Kimia") echo "selected";?>>Teknik Kimia</option>
+						    <option value="Teknik Kelautan" <?php if (isset($prodi3) && $prodi3=="Teknik Kelautan") echo "selected";?>>Teknik Kelautan</option>
+						    <option value="Teknik Perkapalan" <?php if (isset($prodi3) && $prodi3=="Teknik Perkapalan") echo "selected";?>>Teknik Perkapalan</option>
+							<option value="Teknik Mesin" <?php if (isset($prodi3) && $prodi3=="Teknik Mesin") echo "selected";?>>Teknik Mesin</option>
+						</select>
+						<span class="error"><?php echo $prodi3Err;?></span>
+					</div>
+				</div>
+				<br><br>
+				<div class="row text-center">
+					<div>
+						<input type="submit" name="submit" class="btn btn-primary btn-large">
 					</div>
 				</div>
 			</form>
-			
-		</div>
-</div>
+			</div>
+	</div>
+	
+				
 
-<footer class="container-fluid text-center">
-  <a href="#myPage" title="To Top">
-    <p>Back to top</p>
+<footer class="container-fluid text-center bg-grey">
+  <a href="#myPage" title="Kembali ke atas">
+    <span class="glyphicon glyphicon-chevron-up"></span>
   </a>
-  <p>In Partnership with:</p>
+  <p><br><b>In Partnership with:</b></p>
   <br>
   <div class="col-sm-4">
-  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/fa/Bank_Mandiri_logo.svg/1280px-Bank_Mandiri_logo.svg.png" id="mandiri" width=170 height=50>
+  <a href="http://www.bankmandiri.co.id"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/fa/Bank_Mandiri_logo.svg/1280px-Bank_Mandiri_logo.svg.png" id="mandiri" width=170 height=50></a>
   </div>
   <div class="col-sm-4">
-  <img src="https://upload.wikimedia.org/wikipedia/id/archive/a/a6/20161103140142%21Logo_Bank_BTN.png" id="btn" width=230 height=50>
+  <a href="http://www.bni.co.id"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/27/BankNegaraIndonesia46-logo.svg/800px-BankNegaraIndonesia46-logo.svg.png" id="bni" width=153 height=50></a>
   </div>
   <div class="col-sm-4">
-  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/27/BankNegaraIndonesia46-logo.svg/800px-BankNegaraIndonesia46-logo.svg.png" id="bni" width=153 height=50>
+  <a href="http://www.btn.co.id"><img src="https://upload.wikimedia.org/wikipedia/id/archive/a/a6/20161103140142%21Logo_Bank_BTN.png" id="btn" width=230 height=50></a>
   </div>
   <br><br><br>
   <div class="col">
-  <p>And also</p>
-  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c4/Telkom_Indonesia_2013.svg/1280px-Telkom_Indonesia_2013.svg.png" id="telkom" width=180 height=100>
+  <p><b>And also</b></p>
+  <a href="http://www.telkom.co.id"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c4/Telkom_Indonesia_2013.svg/1280px-Telkom_Indonesia_2013.svg.png" id="telkom" width=180 height=100></a>
   </div>
   <br><br><br>
-  <img src="http://apply.darmasiswa.kemdikbud.go.id/assets/images/big-logo.png" alt="Kemendikbud" width="64" height="60">
-  <p>© SBMPTN 2017</p>
+  <a href="http://www.kemdikbud.go.id"><img src="http://apply.darmasiswa.kemdikbud.go.id/assets/images/big-logo.png" alt="Kemendikbud" width="64" height="60"></a>
+  <p><a href="http://sbmptn.ac.id">© SBMPTN 2017</a></p>
 </footer>
 
 <script>
