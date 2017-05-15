@@ -575,11 +575,7 @@
 					</div>
 					<div class="col-md-8 col-sm-6">
 						<input type="radio" name="jenis_kelamin" value="male" <?php if (isset($jenis_kelamin) && $jenis_kelamin=="male") echo "checked";?>> Laki-laki
-<<<<<<< HEAD
 						<br>
-=======
-						&emsp;
->>>>>>> origin/master
 						<input type="radio" name="jenis_kelamin" value="female" <?php if (isset($jenis_kelamin) && $jenis_kelamin=="female") echo "checked";?>> Perempuan
 						<br><span class="error"><?php echo $jenis_kelaminErr;?></span>
 					</div>
@@ -590,11 +586,7 @@
 					</div>
 					<div class="col-md-8 col-sm-6">
 						<br><select name="agama" class="form-control">
-<<<<<<< HEAD
-							<option value="" <?php if (!isset($agama)) echo "selected";?>></option>
-=======
 							<option value="" <?php if (!isset($agama)) echo "selected";?>>--Pilihan Agama--</option>
->>>>>>> origin/master
 						    <option value="Katolik" <?php if (isset($agama) && $agama=="Katolik") echo "selected";?>>Katolik</option>
 						    <option value="Kristen" <?php if (isset($agama) && $agama=="Kristen") echo "selected";?>>Kristen</option>
 						    <option value="Islam" <?php if (isset($agama) && $agama=="Islam") echo "selected";?>>Islam</option>
@@ -725,118 +717,6 @@
 						<span class="error"><?php echo $univ3Err;?></span>
 					</div>
 				</div>
-<<<<<<< HEAD
-				<div class="row">
-					<div class="col-md-4 col-sm-6">
-						<br><b>Program studi pilihan 1</b>
-					</div>
-					<div class="col-md-8 col-sm-6">
-						<br><select name="prodi1" class="form-control">
-							<option value="" <?php if (!isset($prodi1)) echo "selected";?>>Pilihan prodi 1</option>
-						    <option value="Teknik Informatika" <?php if (isset($prodi1) && $prodi1=="Teknik Informatika") echo "selected";?>>Teknik Informatika</option>
-						    <option value="Teknik Industri" <?php if (isset($prodi1) && $prodi1=="Teknik Industri") echo "selected";?>>Teknik Industri</option>
-						    <option value="Teknik Fisika" <?php if (isset($prodi1) && $prodi1=="Teknik Fisika") echo "selected";?>>Teknik Fisika</option>
-						    <option value="Teknik Kimia" <?php if (isset($prodi1) && $prodi1=="Teknik Kimia") echo "selected";?>>Teknik Kimia</option>
-						    <option value="Teknik Kelautan" <?php if (isset($prodi1) && $prodi1=="Teknik Kelautan") echo "selected";?>>Teknik Kelautan</option>
-						    <option value="Teknik Perkapalan" <?php if (isset($prodi1) && $prodi1=="Teknik Perkapalan") echo "selected";?>>Teknik Perkapalan</option>
-							<option value="Teknik Mesin" <?php if (isset($prodi1) && $prodi1=="Teknik Mesin") echo "selected";?>>Teknik Mesin</option>
-						</select>
-						<span class="error"><?php echo $prodi1Err;?></span>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-sm-6">
-						<br><b>Universitas Pilihan 1</b>
-					</div>
-					<div class="col-md-8 col-sm-6">
-						<br><select name="univ1" class="form-control">
-							<option value="" <?php if (!isset($univ1)) echo "selected";?>>Pilihan Universitas 1</option>
-						    <option value="Universitas Indonesia" <?php if (isset($univ1) && $univ1=="Universitas Indonesia") echo "selected";?>>Universitas Indonesia</option>
-						    <option value="Institut Pertanian Bogor" <?php if (isset($univ1) && $univ1=="Institut Pertanian Bogor") echo "selected";?>>Institut Pertanian Bogor</option>
-						    <option value="Institut Teknologi Bandung" <?php if (isset($univ1) && $univ1=="Institut Teknologi Bandung") echo "selected";?>>Institut Teknologi Bandung</option>
-						    <option value="Universitas Gajahmada Yogyakarta" <?php if (isset($univ1) && $univ1=="Universitas Gajahmada Yogyakarta") echo "selected";?>>Universitas Gajahmada Yogyakarta</option>
-						    <option value="Universitas Negeri Semarang" <?php if (isset($univ1) && $univ1=="Universitas Negeri Semarang") echo "selected";?>>Universitas Negeri Semarang</option>
-						    <option value="Institut Teknologi Sepuluh Nopember Surabaya" <?php if (isset($univ1) && $univ1=="Institut Teknologi Sepuluh Nopember Surabaya") echo "selected";?>>Institut Teknologi Sepuluh Nopember Surabaya</option>
-							<option value="Universitas Brawijaya Malang" <?php if (isset($univ1) && $univ1=="Universitas Brawijaya Malang") echo "selected";?>>Universitas Brawijaya Malang</option>
-						</select>
-						<span class="error"><?php echo $univ1Err;?></span>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-sm-6">
-						<br><b>Program studi pilihan 2</b>
-					</div>
-					<div class="col-md-8 col-sm-6">
-						<br><select name="prodi2" class="form-control">
-							<option value="" <?php if (!isset($prodi2)) echo "selected";?>>Pilihan prodi 2</option>
-						    <option value="Teknik Informatika" <?php if (isset($prodi2) && $prodi2=="Teknik Informatika") echo "selected";?>>Teknik Informatika</option>
-						    <option value="Teknik Industri" <?php if (isset($prodi2) && $prodi2=="Teknik Industri") echo "selected";?>>Teknik Industri</option>
-						    <option value="Teknik Fisika" <?php if (isset($prodi2) && $prodi2=="Teknik Fisika") echo "selected";?>>Teknik Fisika</option>
-						    <option value="Teknik Kimia" <?php if (isset($prodi2) && $prodi2=="Teknik Kimia") echo "selected";?>>Teknik Kimia</option>
-						    <option value="Teknik Kelautan" <?php if (isset($prodi2) && $prodi2=="Teknik Kelautan") echo "selected";?>>Teknik Kelautan</option>
-						    <option value="Teknik Perkapalan" <?php if (isset($prodi2) && $prodi2=="Teknik Perkapalan") echo "selected";?>>Teknik Perkapalan</option>
-							<option value="Teknik Mesin" <?php if (isset($prodi2) && $prodi2=="Teknik Mesin") echo "selected";?>>Teknik Mesin</option>
-						</select>
-						<span class="error"><?php echo $prodi2Err;?></span>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-sm-6">
-						<br><b>Universitas Pilihan 2</b>
-					</div>
-					<div class="col-md-8 col-sm-6">
-						<br><select name="univ2" class="form-control">
-							<option value="" <?php if (!isset($univ2)) echo "selected";?>>Pilihan Universitas 2</option>
-						    <option value="Universitas Indonesia" <?php if (isset($univ2) && $univ2=="Universitas Indonesia") echo "selected";?>>Universitas Indonesia</option>
-						    <option value="Institut Pertanian Bogor" <?php if (isset($univ2) && $univ2=="Institut Pertanian Bogor") echo "selected";?>>Institut Pertanian Bogor</option>
-						    <option value="Institut Teknologi Bandung" <?php if (isset($univ2) && $univ2=="Institut Teknologi Bandung") echo "selected";?>>Institut Teknologi Bandung</option>
-						    <option value="Universitas Gajahmada Yogyakarta" <?php if (isset($univ2) && $univ2=="Universitas Gajahmada Yogyakarta") echo "selected";?>>Universitas Gajahmada Yogyakarta</option>
-						    <option value="Universitas Negeri Semarang" <?php if (isset($univ2) && $univ2=="Universitas Negeri Semarang") echo "selected";?>>Universitas Negeri Semarang</option>
-						    <option value="Institut Teknologi Sepuluh Nopember Surabaya" <?php if (isset($univ2) && $univ2=="Institut Teknologi Sepuluh Nopember Surabaya") echo "selected";?>>Institut Teknologi Sepuluh Nopember Surabaya</option>
-							<option value="Universitas Brawijaya Malang" <?php if (isset($univ2) && $univ2=="Universitas Brawijaya Malang") echo "selected";?>>Universitas Brawijaya Malang</option>
-						</select>
-						<span class="error"><?php echo $univ2Err;?></span>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-sm-6">
-						<br><b>Program studi pilihan 3</b>
-					</div>
-					<div class="col-md-8 col-sm-6">
-						<br><select name="prodi3" class="form-control">
-							<option value="" <?php if (!isset($prodi3)) echo "selected";?>>Pilihan prodi 3</option>
-						    <option value="Teknik Informatika" <?php if (isset($prodi3) && $prodi3=="Teknik Informatika") echo "selected";?>>Teknik Informatika</option>
-						    <option value="Teknik Industri" <?php if (isset($prodi3) && $prodi3=="Teknik Industri") echo "selected";?>>Teknik Industri</option>
-						    <option value="Teknik Fisika" <?php if (isset($prodi3) && $prodi3=="Teknik Fisika") echo "selected";?>>Teknik Fisika</option>
-						    <option value="Teknik Kimia" <?php if (isset($prodi3) && $prodi3=="Teknik Kimia") echo "selected";?>>Teknik Kimia</option>
-						    <option value="Teknik Kelautan" <?php if (isset($prodi3) && $prodi3=="Teknik Kelautan") echo "selected";?>>Teknik Kelautan</option>
-						    <option value="Teknik Perkapalan" <?php if (isset($prodi3) && $prodi3=="Teknik Perkapalan") echo "selected";?>>Teknik Perkapalan</option>
-							<option value="Teknik Mesin" <?php if (isset($prodi3) && $prodi3=="Teknik Mesin") echo "selected";?>>Teknik Mesin</option>
-						</select>
-						<span class="error"><?php echo $prodi3Err;?></span>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-sm-6">
-						<br><b>Universitas Pilihan 3</b>
-					</div>
-					<div class="col-md-8 col-sm-6">
-						<br><select name="univ3" class="form-control">
-							<option value="" <?php if (!isset($univ3)) echo "selected";?>>Pilihan Universitas 3</option>
-						    <option value="Universitas Indonesia" <?php if (isset($univ3) && $univ3=="Universitas Indonesia") echo "selected";?>>Universitas Indonesia</option>
-						    <option value="Institut Pertanian Bogor" <?php if (isset($univ3) && $univ3=="Institut Pertanian Bogor") echo "selected";?>>Institut Pertanian Bogor</option>
-						    <option value="Institut Teknologi Bandung" <?php if (isset($univ3) && $univ3=="Institut Teknologi Bandung") echo "selected";?>>Institut Teknologi Bandung</option>
-						    <option value="Universitas Gajahmada Yogyakarta" <?php if (isset($univ3) && $univ3=="Universitas Gajahmada Yogyakarta") echo "selected";?>>Universitas Gajahmada Yogyakarta</option>
-						    <option value="Universitas Negeri Semarang" <?php if (isset($univ3) && $univ3=="Universitas Negeri Semarang") echo "selected";?>>Universitas Negeri Semarang</option>
-						    <option value="Institut Teknologi Sepuluh Nopember Surabaya" <?php if (isset($univ3) && $univ3=="Institut Teknologi Sepuluh Nopember Surabaya") echo "selected";?>>Institut Teknologi Sepuluh Nopember Surabaya</option>
-							<option value="Universitas Brawijaya Malang" <?php if (isset($univ3) && $univ3=="Universitas Brawijaya Malang") echo "selected";?>>Universitas Brawijaya Malang</option>
-						</select>
-						<span class="error"><?php echo $univ3Err;?></span>
-					</div>
-				</div>
-				<br>
-=======
->>>>>>> origin/master
 				<div class="row">
 					<div class="col-md-4 col-sm-6">
 						<br><b>Program studi pilihan 3</b>
